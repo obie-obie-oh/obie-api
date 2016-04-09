@@ -8,7 +8,6 @@ if (!process.env.deployCheck){
     password: "",
     database: "obie"
   })
-  console.log('connection: ', connection)
   // var connection = mysql.createConnection({
   //   host: process.env.DBHOST,
   //   user: process.env.DBUSER,
