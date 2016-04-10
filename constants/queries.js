@@ -17,7 +17,8 @@ module.exports = {
   },
 
   payments: {
-
+    getWhatIsOwedToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments ON (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE bills.user_id = ? AND payments.user_id <> ? AND payments.paid=0 ORDER BY bills.due_date",
+    getWhatHasBeenPaidToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments on (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE payments.paid=1 AND bills.user_id = ? ORDER BY -payments.date_paid  LIMIT 5"
   }
 
 }

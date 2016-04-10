@@ -5,6 +5,7 @@ module.exports = {
   getUnpaidBills: function(params, callback) {
     makeQuery(params, callback, queries.getUnpaidBills);
   },
+  
   getPaidBills: function(params, callback) {
     makeQuery(params, callback, queries.getPaidBills);
   }
