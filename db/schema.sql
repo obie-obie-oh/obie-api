@@ -197,6 +197,13 @@ INSERT INTO `messages` (`id`,`user_id`,`text`,`house_id`,`time`) VALUES
 -- ('','','','','','');
 INSERT INTO `bills` (`id`,`user_id`,`total`,`name`,`due_date`,`date_paid`) VALUES
 (1,1,200,'water bills','2016-01-29', null);
+
+INSERT INTO `bills` (`id`,`user_id`,`total`,`name`,`due_date`,`date_paid`) VALUES
+(2,2,300,'electric bills','2016-01-29', null);
+
+INSERT INTO `bills` (`id`,`user_id`,`total`,`name`,`due_date`,`date_paid`) VALUES
+(3,2,100,'terminator','2016-01-29', null);
+
 -- INSERT INTO `payments` (`id`,`bill_id`,`user_id`,`amount`,`paid`,`datePaid`) VALUES
 -- ('','','','','','');
 
@@ -205,5 +212,11 @@ INSERT INTO `payments` (`id`,`bill_id`,`user_id`,`amount`,`paid`,`date_paid`) VA
 
 INSERT INTO `payments` (`id`,`bill_id`,`user_id`,`amount`,`paid`,`date_paid`) VALUES
 (2,1,2,400,1,null);
+
+INSERT INTO `payments` (`id`,`bill_id`,`user_id`,`amount`,`paid`,`date_paid`) VALUES
+(3,2,1,300,0,null);
+
+INSERT INTO `payments` (`id`,`bill_id`,`user_id`,`amount`,`paid`,`date_paid`) VALUES
+(4,3,1,100,1,null);
 
 

@@ -9,6 +9,15 @@ module.exports = {
 
   chores: {
     get: "SELECT users.name, chores.id, chores.name as chorename, chores.category, chores.completed, chores.due_date, chores.house_id from chores LEFT OUTER JOIN users ON (chores.user_id = users.id) WHERE Chores.house_id=? and completed=0 ORDER BY chores.due_date"
+  },
+
+  bills: {
+    getUnpaidBills: "SELECT bills.name AS billName, bills.due_date, payments.amount, bills.total, users.name AS whoIsOwed, users.email AS whoIsOwedEmail, payments.id AS paymentId, bills.id AS billId FROM payments LEFT OUTER JOIN bills ON (payments.bill_id=bills.id) LEFT OUTER JOIN users ON (users.id=bills.user_id) WHERE payments.paid=0 AND payments.user_id=? AND bills.user_id <> ? ORDER BY bills.due_date",
+    getPaidBills: "SELECT bills.name AS billName, bills.due_date, payments.amount, users.name AS whoIsOwed, payments.id AS paymentId, bills.id AS billId FROM payments LEFT OUTER JOIN bills ON (payments.bill_id=bills.id) LEFT OUTER JOIN users ON (users.id=bills.user_id) WHERE payments.paid=1 AND payments.user_id=? ORDER BY -payments.date_paid LIMIT 5"
+  },
+
+  payments: {
+
   }
 
 }
