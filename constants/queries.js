@@ -13,12 +13,15 @@ module.exports = {
 
   bills: {
     getUnpaidBills: "SELECT bills.name AS billName, bills.due_date, payments.amount, bills.total, users.name AS whoIsOwed, users.email AS whoIsOwedEmail, payments.id AS paymentId, bills.id AS billId FROM payments LEFT OUTER JOIN bills ON (payments.bill_id=bills.id) LEFT OUTER JOIN users ON (users.id=bills.user_id) WHERE payments.paid=0 AND payments.user_id=? AND bills.user_id <> ? ORDER BY bills.due_date",
-    getPaidBills: "SELECT bills.name AS billName, bills.due_date, payments.amount, users.name AS whoIsOwed, payments.id AS paymentId, bills.id AS billId FROM payments LEFT OUTER JOIN bills ON (payments.bill_id=bills.id) LEFT OUTER JOIN users ON (users.id=bills.user_id) WHERE payments.paid=1 AND payments.user_id=? ORDER BY -payments.date_paid LIMIT 5"
+    getPaidBills: "SELECT bills.name AS billName, bills.due_date, payments.amount, users.name AS whoIsOwed, payments.id AS paymentId, bills.id AS billId FROM payments LEFT OUTER JOIN bills ON (payments.bill_id=bills.id) LEFT OUTER JOIN users ON (users.id=bills.user_id) WHERE payments.paid=1 AND payments.user_id=? ORDER BY -payments.date_paid LIMIT 5",
+    post: "INSERT INTO bills (user_id, total, name, due_date) VALUES (?,?,?,?)"
   },
 
   payments: {
     getWhatIsOwedToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments ON (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE bills.user_id = ? AND payments.user_id <> ? AND payments.paid=0 ORDER BY bills.due_date",
-    getWhatHasBeenPaidToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments on (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE payments.paid=1 AND bills.user_id = ? ORDER BY -payments.date_paid  LIMIT 5"
+    getWhatHasBeenPaidToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments on (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE payments.paid=1 AND bills.user_id = ? ORDER BY -payments.date_paid  LIMIT 5",
+    post: "INSERT INTO payments (bill_id, user_id, amount) VALUES (?, ?, ?)",
+    markPaymentAsPaid: "UPDATE payments SET paid=1, date_paid=NOW() WHERE id=?"
   }
 
 }

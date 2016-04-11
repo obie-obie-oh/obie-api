@@ -12,5 +12,11 @@ module.exports = {
     //params need to be user_id
     const params = [1];
     invokeModel(req, res, params, billsModel, 'getPaidBills');
+  },
+
+  post: function(req, res) {
+    //1 should be user_id
+    const params = [1, req.body.total, req.body.name, req.body.dueDate];
+    invokeModel(req, res, params, billsModel, 'post');
   }
 }

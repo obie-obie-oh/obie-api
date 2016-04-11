@@ -5,7 +5,16 @@ module.exports = {
   getWhatIsOwedToUser: function(params, callback) {
     makeQuery(params, callback, queries.getWhatIsOwedToUser);
   },
+
   getWhatHasBeenPaidToUser: function(params, callback) {
     makeQuery(params, callback, queries.getWhatHasBeenPaidToUser);
+  },
+
+  post: function(params, callback) {
+    makeQuery(params, callback, queries.post);
+  },
+
+  markPaymentAsPaid: function(params, callback) {
+    makeQuery(params, callback, queries.markPaymentAsPaid);
   }
 }

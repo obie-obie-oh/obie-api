@@ -12,5 +12,15 @@ module.exports = {
     //user_id
     const params = [1];
     invokeModel(req, res, params, paymentsModel, 'getWhatHasBeenPaidToUser');
+  },
+
+  post: function(req, res) {
+    const params = [req.body.billId, req.body.userId, req.body.amount];
+    invokeModel(req, res, params, paymentsModel, 'post');
+  },
+
+  markPaymentAsPaid: function(req, res) {
+    const params = [req.params.paymentId];
+    invokeModel(req, res, params, paymentsModel, 'markPaymentAsPaid');
   }
 }
