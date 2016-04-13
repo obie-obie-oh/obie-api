@@ -1,8 +1,10 @@
+const express = require('express');
 const billsController = require('../controllers/bills_controller')
 
-module.exports = function(app) {
-  //These endpoints should probably be renamed
-  app.get('/api/bills', billsController.getUnpaidBills);
-  app.get('/api/bills/paid', billsController.getPaidBills);
-  app.post('/api/bills', billsController.post);
-}
+const router = express.Router();
+
+router.get('/', billsController.getUnpaidBills);
+router.get('/paid', billsController.getPaidBills);
+router.post('/', billsController.post);
+
+module.exports = router;
