@@ -7,12 +7,7 @@ const paymentsRouter = require('./payments_router');
 const router = express.Router();
 router.use('/messages', messagesRouter);
 router.use('/chores', choresRouter);
+router.use('/bills', billsRouter);
+router.use('/payments', paymentsRouter);
 
 module.exports = router;
-
-// module.exports = function(app) {
-//   messagesRouter(app);
-//   choresRouter(app);
-//   billsRouter(app);
-//   paymentsRouter(app);
-// }
