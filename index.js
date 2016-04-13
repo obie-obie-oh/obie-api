@@ -13,7 +13,6 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.use('/api', routes);
-router(app);
 
 const server = app.listen(app.get('port'), () => {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
