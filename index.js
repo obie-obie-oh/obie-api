@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const router = require('./config/router')
+const routes = require('./routes');
 require('dotenv').load();
 
 const app = express();
@@ -12,13 +12,10 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('combined'));
 
-router(app);
+app.use('/api', routes);
 
 const server = app.listen(app.get('port'), () => {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
-
-// app.use('/api', require('./config/api'))
-// app.use('/messages', require('config/messages'))
 
 module.exports = app;
