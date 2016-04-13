@@ -11,10 +11,3 @@ router.use('/bills', billsRouter);
 router.use('/payments', paymentsRouter);
 
 module.exports = router;
-
-// module.exports = function(app) {
-//   messagesRouter(app);
-//   choresRouter(app);
-//   billsRouter(app);
-//   paymentsRouter(app);
-// }
