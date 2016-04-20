@@ -1,8 +1,16 @@
 const bcrypt = require('bcrypt-nodejs');
+const config = require('../config.js');
+const jwt = require('jwt-simple');
 
 module.exports = {
-  comparePassword: function() {
+  comparePassword: function(candidatePassword, hashedPassword, callback) {
+    bcrypt.compare(candidatePassword, hashedPassword, function(err, isMatch) {
+      if (err) {
+        return callback(err);
+      }
 
+      callback(null, isMatch);
+    })
   },
 
   saltAndHashPassword: function(req, res, next) {
@@ -16,5 +24,10 @@ module.exports = {
         next();
       });
     });
+  },
+
+  tokenForUser: function(user) {
+    const timestamp = new Date().getTime();
+    return jwt.encode({ userId: user.id, houseId:user.house_id, iat: timestamp}, config.secret)
   }
 }
