@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/obie-obie-oh/obie-api#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "dotenv": "^2.0.0",
