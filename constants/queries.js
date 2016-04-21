@@ -1,7 +1,8 @@
 module.exports = {
   users: {
     post: "INSERT INTO users (name, email, password) VALUES (?,?,?)",
-    getUserByEmail: "SELECT name, email, house_id, password FROM users WHERE email = ?"
+    getUserByEmail: "SELECT name, id, email, house_id, password FROM users WHERE email = ?",
+    findUserById: "SELECT name, id, email, house_id, password FROM users WHERE id = ?"
   },
   
   messages: {

@@ -5,10 +5,16 @@ const passportService = require('../helpers/passport');
 
 const passport = require('passport');
 const requireSignin = passport.authenticate('local', {session: false});
+const requireAuth = passport.authenticate('jwt', {session: false});
 
 const router = express.Router();
 
 router.post('/signin', requireSignin, usersController.signin);
 router.post('/', saltAndHashPassword, usersController.post);
+
+//test route
+router.get('/test', requireAuth, function(req, res) {
+  res.send({hi: 'there'});
+});
 
 module.exports = router;

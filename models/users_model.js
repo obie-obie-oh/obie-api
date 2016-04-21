@@ -8,5 +8,9 @@ module.exports = {
 
   getUserByEmail: function(params, callback) {
     makeQuery(params, callback, queries.getUserByEmail);
+  },
+
+  findUserById: function(params, callback) {
+    makeQuery(params, callback, queries.findUserById);
   }
 }
