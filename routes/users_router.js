@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/signin', requireSignin, usersController.signin);
 router.post('/', saltAndHashPassword, usersController.post);
 
-//test route
+//test route to show that auth middleware works
 router.get('/test', requireAuth, function(req, res) {
   res.send({hi: 'there'});
 });
