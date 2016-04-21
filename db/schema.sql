@@ -22,7 +22,7 @@ CREATE TABLE `users` (
   `id` INT AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(40),
+  `password` VARCHAR(100),
   `house_id` INT,
   `previous_houses` VARCHAR(100),
   `user_image_url` VARCHAR(200),
