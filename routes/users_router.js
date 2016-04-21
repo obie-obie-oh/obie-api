@@ -10,6 +10,5 @@ const router = express.Router();
 
 router.post('/signin', requireSignin, usersController.signin);
 router.post('/', saltAndHashPassword, usersController.post);
-router.get('/email/:email', usersController.getUserByEmail);
 
 module.exports = router;
