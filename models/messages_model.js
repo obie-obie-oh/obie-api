@@ -7,5 +7,8 @@ module.exports = {
   },
   getLandlord: function(params, callback) {
     makeQuery(params, callback, queries.getLandlord);
+  },
+  post: function(params, callback) {
+    makeQuery(params, callback, queries.post)
   }
 }

@@ -160,8 +160,6 @@ INSERT INTO `users` (name, house_id, email) VALUES
 INSERT INTO `users` (name, house_id, email) VALUES
 ('Lyly Nguyen', 1, 'lyly@yahoo.com');
 
-INSERT INTO `users` (name, house_id, venmoName, username, email, provider, venmo, balance, venmoid ) VALUES
-('Nick Kneafsey', 1, 'nick@yahoo.com');
 
 -- INSERT INTO `users` (`id`,`name`,`password`,`house_id`) VALUES
 -- (2, 'Nick Kneafsey','nice', 1);
