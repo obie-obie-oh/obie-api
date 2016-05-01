@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt-nodejs');
-const config = require('../config.js');
+const config = require('../config');
 const jwt = require('jwt-simple');
 
 module.exports = {
