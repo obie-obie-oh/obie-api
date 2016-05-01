@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const routes = require('./routes');
+const attachUser = require('./middleware/auth').attachUser;
 require('dotenv').load();
 
 const app = express();
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('combined'));
 
-app.use('/api', routes);
+app.use('/api', attachUser, routes);
 
 const server = app.listen(app.get('port'), () => {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
