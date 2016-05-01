@@ -9,7 +9,8 @@ module.exports = {
   },
 
   post: function(req, res) {
-    const params = [req.body.userId, req.body.name, req.body.category, req.body.due_date, req.user.houseId]
+    req.body = req.body.data;
+    const params = [req.body.userId, req.body.name, req.body.category, req.body.dueDate, req.user.houseId]
     invokeModel(req, res, params, choresModel, 'post')
   }
 }
