@@ -9,7 +9,8 @@ const requireAuth = passport.authenticate('jwt', {session: false});
 
 const router = express.Router();
 
-router.get('/roommates', usersController.getUsersInHouse)
+router.get('/roommates', usersController.getUsersInHouse);
+router.get('/image', usersController.getUserImage);
 
 
 // TODO: The following routes should probably be moved to auth
