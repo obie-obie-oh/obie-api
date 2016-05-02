@@ -2,7 +2,8 @@ module.exports = {
   users: {
     post: "INSERT INTO users (name, email, password) VALUES (?,?,?)",
     getUserByEmail: "SELECT name, id, email, house_id, password FROM users WHERE email = ?",
-    findUserById: "SELECT name, id, email, house_id, password FROM users WHERE id = ?"
+    findUserById: "SELECT name, id, email, house_id, password FROM users WHERE id = ?",
+    getUsersInHouse: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ?"
   },
   
   messages: {
@@ -28,6 +29,10 @@ module.exports = {
     getWhatHasBeenPaidToUser: "SELECT users.name AS ower, payments.amount, bills.name AS billName, bills.due_date, bills.id AS billId, payments.id AS paymentID FROM bills LEFT OUTER JOIN payments on (bills.id=payments.bill_id) LEFT OUTER JOIN users ON (payments.user_id=users.id) WHERE payments.paid=1 AND bills.user_id = ? ORDER BY -payments.date_paid  LIMIT 5",
     post: "INSERT INTO payments (bill_id, user_id, amount) VALUES (?, ?, ?)",
     markPaymentAsPaid: "UPDATE payments SET paid=1, date_paid=NOW() WHERE id=?"
+  },
+
+  houses: {
+    getHouseData: "SELECT * FROM houses WHERE id = ?"
   }
 
 }

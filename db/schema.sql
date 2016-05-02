@@ -160,7 +160,6 @@ INSERT INTO `users` (name, house_id, email) VALUES
 INSERT INTO `users` (name, house_id, email) VALUES
 ('Lyly Nguyen', 1, 'lyly@yahoo.com');
 
-
 -- INSERT INTO `users` (`id`,`name`,`password`,`house_id`) VALUES
 -- (2, 'Nick Kneafsey','nice', 1);
 

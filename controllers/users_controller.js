@@ -4,6 +4,11 @@ const comparePassword = require('../helpers/authentication').comparePassword;
 const tokenForUser = require('../helpers/authentication').tokenForUser;
 
 module.exports = {
+  getUsersInHouse: function(req, res) {
+    const params = [req.user.houseId];
+    invokeModel(req, res, params, usersModel, 'getUsersInHouse');    
+  },
+  
   signin: function(req, res, next) {
     res.send({token: tokenForUser(req.user)});
   },
