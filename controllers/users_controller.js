@@ -5,8 +5,13 @@ const tokenForUser = require('../helpers/authentication').tokenForUser;
 
 module.exports = {
   getUsersInHouse: function(req, res) {
-    const params = [req.user.houseId];
+    const params = [req.user.houseId, req.user.id];
     invokeModel(req, res, params, usersModel, 'getUsersInHouse');    
+  },
+
+  getUserImage: function(req, res) {
+    const params = [req.user.id];
+    invokeModel(req, res, params, usersModel, 'getUserImage');    
   },
   
   signin: function(req, res, next) {
