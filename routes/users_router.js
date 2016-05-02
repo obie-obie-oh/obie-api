@@ -9,6 +9,10 @@ const requireAuth = passport.authenticate('jwt', {session: false});
 
 const router = express.Router();
 
+router.get('/roommates', usersController.getUsersInHouse)
+
+
+// TODO: The following routes should probably be moved to auth
 router.post('/signin', requireSignin, usersController.signin);
 router.post('/', saltAndHashPassword, usersController.post);
 

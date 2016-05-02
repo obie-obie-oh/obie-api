@@ -6,6 +6,10 @@ module.exports = {
     makeQuery(params, callback, queries.post);
   },
 
+  getUsersInHouse: function(params, callback) {
+    makeQuery(params, callback, queries.getUsersInHouse);
+  },
+
   getUserByEmail: function(params, callback) {
     makeQuery(params, callback, queries.getUserByEmail);
   },
