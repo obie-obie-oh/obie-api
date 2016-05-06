@@ -18,5 +18,12 @@ module.exports = {
     // params needs to be houseId
     const params = [1];
     invokeModel(req, res, params, messagesModel, 'getLandlord');
+  },
+
+  postLandlord: function(req, res) {
+    req.body = req.body.data;
+    console.log('REQ BODY', req.body)
+    const params = [req.user.id, req.body.text, req.user.houseId]
+    invokeModel(req, res, params, messagesModel, 'postLandlord')
   }
 }
