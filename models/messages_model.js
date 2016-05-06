@@ -10,5 +10,8 @@ module.exports = {
   },
   post: function(params, callback) {
     makeQuery(params, callback, queries.post)
+  },
+  postLandlord: function(params, callback) {
+    makeQuery(params, callback, queries.postLandlord)
   }
 }
