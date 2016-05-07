@@ -33,7 +33,8 @@ module.exports = {
   },
 
   houses: {
-    getHouseData: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ?"
+    getHouseData: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ?",
+    getLandlord: "SELECT users.id, users.name, users.email FROM houses LEFT OUTER JOIN users ON (houses.landlord_id=users.id) WHERE houses.id = ?"
   }
 
 }

@@ -143,14 +143,26 @@ ALTER TABLE `payments` ADD FOREIGN KEY (user_id) REFERENCES `users` (`id`);
 -- Test Data
 -- ---
 
-INSERT INTO `houses` (`id`,`name`,`code`) VALUES
-(1,'Landlord houses', 'QWERTY123');
-
-INSERT INTO `houses` (`id`,`name`,`code`) VALUES
-(2,'less fun houses', '12345');
-
 -- INSERT INTO `users` (`id`,`name`,`password`,`house_id`) VALUES
 -- ('','','','');
+
+
+
+
+
+INSERT INTO `houses` (`name`,`code`) VALUES
+('Landlord houses', 'QWERTY123');
+
+INSERT INTO `houses` (`name`,`code`) VALUES
+('less fun houses', '12345');
+
+INSERT INTO `houses` (`name`,`code`) VALUES
+('Apartment Building', 'woowoo');
+
+
+
+
+
 INSERT INTO `users` (name, house_id, email) VALUES
 ('Joey Holland', 1, 'joey@yahoo.com');
 
@@ -160,8 +172,14 @@ INSERT INTO `users` (name, house_id, email) VALUES
 INSERT INTO `users` (name, house_id, email) VALUES
 ('Lyly Nguyen', 1, 'lyly@yahoo.com');
 
--- INSERT INTO `users` (`id`,`name`,`password`,`house_id`) VALUES
--- (2, 'Nick Kneafsey','nice', 1);
+
+INSERT INTO `users` (`name`,`house_id`,`email`,`is_landlord`) VALUES
+('Nick Kneafsey',2,'nick@yahoo.com', 1);
+
+
+UPDATE `houses` SET `landlord_id`=4 WHERE `id`=1;
+UPDATE `houses` SET `landlord_id`=4 WHERE `id`=3;
+
 
 -- INSERT INTO `users` (`id`,`name`,`password`,`house_id`) VALUES
 -- (3, 'Lyly Nguyen','password', 2);

@@ -3,7 +3,6 @@ const invokeModel = require('../helpers/controllers').invokeModel;
 
 module.exports = {
   get: function(req, res) {
-    // params needs to be house_id
     const params = [req.user.houseId];
     invokeModel(req, res, params, choresModel, 'get')
   },
