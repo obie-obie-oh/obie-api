@@ -2,6 +2,8 @@ const express = require('express');
 const usersController = require('../controllers/users_controller');
 const saltAndHashPassword = require('../helpers/authentication').saltAndHashPassword;
 const passportService = require('../helpers/passport');
+const checkIfUserExists = require('../middleware/auth').checkIfUserExists;
+
 
 const passport = require('passport');
 const requireSignin = passport.authenticate('local', {session: false});
@@ -15,10 +17,11 @@ router.get('/image', usersController.getUserImage);
 
 // TODO: The following routes should probably be moved to auth
 router.post('/signin', requireSignin, usersController.signin);
-router.post('/', saltAndHashPassword, usersController.post);
+router.post('/', saltAndHashPassword, checkIfUserExists, usersController.post);
 
 //test route to show that auth middleware works
 router.get('/test', requireAuth, function(req, res) {
+  console.log("USER", req.user);
   res.send({hi: 'there'});
 });
 

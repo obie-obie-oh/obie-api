@@ -28,6 +28,6 @@ module.exports = {
 
   tokenForUser: function(user) {
     const timestamp = new Date().getTime();
-    return jwt.encode({ userId: user.id, houseId:user.house_id, iat: timestamp}, config.secret)
+    return jwt.encode({ userId: user.id, houseId:user.house_id, isLandlord:user.is_landlord, iat: timestamp}, config.secret)
   }
 }
