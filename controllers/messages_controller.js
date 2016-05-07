@@ -3,8 +3,7 @@ const invokeModel = require('../helpers/controllers').invokeModel;
 
 module.exports = {
   get: function(req, res) {
-    // params needs to be houseId
-    const params = [1];
+    const params = [req.user.houseId];
     invokeModel(req, res, params, messagesModel, 'get');
   },
 
@@ -15,8 +14,7 @@ module.exports = {
   },
 
   getLandlord: function(req, res) {
-    // params needs to be houseId
-    const params = [1];
+    const params = [req.user.houseId];
     invokeModel(req, res, params, messagesModel, 'getLandlord');
   },
 
