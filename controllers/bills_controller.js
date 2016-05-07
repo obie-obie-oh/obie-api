@@ -16,6 +16,7 @@ module.exports = {
 
   post: function(req, res) {
     //1 should be user_id
+    console.log('IN HERE BALLER', req.body)
     const params = [1, req.body.total, req.body.name, req.body.dueDate];
     invokeModel(req, res, params, billsModel, 'post');
   }

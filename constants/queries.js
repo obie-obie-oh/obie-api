@@ -3,7 +3,7 @@ module.exports = {
     post: "INSERT INTO users (name, email, password) VALUES (?,?,?)",
     getUserByEmail: "SELECT name, id, email, house_id, password FROM users WHERE email = ?",
     findUserById: "SELECT name, id, email, house_id, password FROM users WHERE id = ?",
-    getUsersInHouse: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ? AND id <> ?",
+    getUsersInHouse: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ?",
     getUserImage: "SELECT user_image_url FROM users WHERE id = ?"
   },
   
