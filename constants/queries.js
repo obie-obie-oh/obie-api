@@ -15,8 +15,8 @@ module.exports = {
   },
 
   chores: {
-    get: "SELECT users.name, chores.id, chores.name as chorename, chores.category, chores.completed, chores.due_date, chores.house_id from chores LEFT OUTER JOIN users ON (chores.user_id = users.id) WHERE Chores.house_id=? and completed=0 ORDER BY chores.due_date",
-    post: "INSERT INTO chores (user_id, name, category, due_date, house_id) VALUES (?,?,?,?,?)"
+    get: "SELECT users.name, chores.id, chores.name as chorename, chores.details, chores.completed, chores.due_date, chores.house_id from chores LEFT OUTER JOIN users ON (chores.user_id = users.id) WHERE Chores.house_id=? and completed=0 ORDER BY chores.due_date",
+    post: "INSERT INTO chores (user_id, name, details, due_date, house_id) VALUES (?,?,?,?,?)"
   },
 
   bills: {
