@@ -55,9 +55,9 @@ DROP TABLE IF EXISTS `chores`;
     
 CREATE TABLE `chores` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT,
+  `user_id` INT NULL,
   `name` VARCHAR(30) NOT NULL,
-  `category` VARCHAR(20) NOT NULL,
+  `details` VARCHAR(200) NULL,
   `completed` TINYINT NOT NULL DEFAULT 0,
   `due_date` DATE NULL,
   `house_id` INT NOT NULL,
@@ -195,8 +195,14 @@ UPDATE `houses` SET `landlord_id`=4 WHERE `id`=3;
 -- INSERT INTO `chores` (`id`,`user_id`,`name`,`category`,`completed`,`dueDate`,`house_id`) VALUES
 -- ('','','','','','','');
 
-INSERT INTO `chores` (`user_id`,`name`,`category`,`completed`,`due_date`,`house_id`) VALUES
-(1,'feed dog','pets',0,'2016-01-29', 1);
+INSERT INTO `chores` (`user_id`,`name`,`details`,`completed`,`due_date`,`house_id`) VALUES
+(1,'feed dog','he eats bacon', 0,'2016-01-29', 1);
+
+INSERT INTO `chores` (`user_id`,`name`,`details`,`completed`,`due_date`,`house_id`) VALUES
+(null,'Wash the dishes', null, 0, null, 1);
+
+INSERT INTO `chores` (`user_id`,`name`,`details`,`completed`,`due_date`,`house_id`) VALUES
+(null,'unclog the toilet', null, 1, null, 1);
 
 -- INSERT INTO `messages` (`id`,`user_id`,`text`,`house_id`) VALUES
 -- ('','','','');
