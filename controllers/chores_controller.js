@@ -11,5 +11,11 @@ module.exports = {
     req.body = req.body.data;
     const params = [req.body.userId, req.body.task, req.body.details, req.body.dueDate, req.user.houseId]
     invokeModel(req, res, params, choresModel, 'post')
+  },
+
+  put: function(req, res) {
+    console.log(req.body.id)
+    const params = [req.body.id];
+    invokeModel(req, res, params, choresModel, 'put')
   }
 }

@@ -8,5 +8,9 @@ module.exports = {
 
   post: function(params, callback) {
     makeQuery(params, callback, queries.post);
+  },
+
+  put: function(params, callback) {
+    makeQuery(params, callback, queries.put);
   }
 }
