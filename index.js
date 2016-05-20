@@ -7,7 +7,7 @@ const attachUser = require('./middleware/auth').attachUser;
 require('dotenv').load();
 
 const app = express();
-app.set('port', (process.env.PORT || 6969));
+app.set('port', (process.env.PORT || 8787));
 
 app.use(bodyParser.json());
 app.use(cors());
