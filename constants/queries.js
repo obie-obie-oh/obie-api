@@ -4,7 +4,7 @@ module.exports = {
     getUserByEmail: "SELECT name, id, email, house_id, password FROM users WHERE email = ?",
     findUserById: "SELECT name, id, email, house_id, password FROM users WHERE id = ?",
     getUsersInHouse: "SELECT id, name, email, user_image_url FROM users WHERE house_id = ?",
-    getUserImage: "SELECT user_image_url FROM users WHERE id = ?"
+    getUserData: "SELECT name, email, user_image_url FROM users WHERE id = ?"
   },
   
   messages: {

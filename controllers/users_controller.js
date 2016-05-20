@@ -9,9 +9,9 @@ module.exports = {
     invokeModel(req, res, params, usersModel, 'getUsersInHouse');    
   },
 
-  getUserImage: function(req, res) {
+  getUserData: function(req, res) {
     const params = [req.user.id];
-    invokeModel(req, res, params, usersModel, 'getUserImage');    
+    invokeModel(req, res, params, usersModel, 'getUserData');    
   },
   
   signin: function(req, res, next) {

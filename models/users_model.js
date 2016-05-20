@@ -18,7 +18,7 @@ module.exports = {
     makeQuery(params, callback, queries.findUserById);
   },
 
-  getUserImage: function(params, callback) {
-    makeQuery(params, callback, queries.getUserImage);
+  getUserData: function(params, callback) {
+    makeQuery(params, callback, queries.getUserData);
   }
 }
