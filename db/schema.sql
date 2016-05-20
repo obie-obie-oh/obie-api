@@ -94,7 +94,7 @@ CREATE TABLE `bills` (
   `user_id` INT NOT NULL,
   `total` FLOAT NOT NULL,
   `name` VARCHAR(30) NULL,
-  `due_date` DATE NOT NULL,
+  `due_date` DATE NULL,
   `date_paid` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
