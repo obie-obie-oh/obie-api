@@ -60,6 +60,7 @@ CREATE TABLE `chores` (
   `details` VARCHAR(200) NULL,
   `completed` TINYINT NOT NULL DEFAULT 0,
   `due_date` DATE NULL,
+  `completed_date` DATE NULL,
   `house_id` INT NOT NULL,
   PRIMARY KEY (`id`)
 );
