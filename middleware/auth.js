@@ -6,14 +6,20 @@ module.exports = {
   attachUser: function(req, res, next) {
     //TODO: obtain userid and houseId from jwt
 
-    const userData = jwt.decode(req.header.token, config.secret);
+    // const userData = jwt.decode(req.header.token, config.secret);
+
+    // req.user = {
+    //   id: userData.userId,
+    //   houseId: userData.houseId,
+    //   isLandlord: userData.isLandlord
+    // };
+    // console.log("USER", req.user);
 
     req.user = {
-      id: userData.userId,
-      houseId: userData.houseId,
-      isLandlord: userData.isLandlord
+      id: 2,
+      houseId: 1,
+      isLandlord: 0
     };
-    console.log("USER", req.user);
     next();
   },
 
