@@ -15,7 +15,7 @@ module.exports = {
       if (err) {
         res.send(500);
       } else if (results.length > 0) {
-        res.send(422);
+        res.send(401);
       } else {
         next();
       }
