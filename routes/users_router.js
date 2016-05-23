@@ -3,7 +3,7 @@ const usersController = require('../controllers/users_controller');
 const saltAndHashPassword = require('../helpers/authentication').saltAndHashPassword;
 const passportService = require('../helpers/passport');
 const checkIfUserExists = require('../middleware/auth').checkIfUserExists;
-
+const attachUser = require('../middleware/auth').attachUser;
 
 const passport = require('passport');
 const requireSignin = passport.authenticate('local', {session: false});
@@ -11,8 +11,8 @@ const requireAuth = passport.authenticate('jwt', {session: false});
 
 const router = express.Router();
 
-router.get('/roommates', usersController.getUsersInHouse);
-router.get('/', usersController.getUserData);
+router.get('/roommates', attachUser, usersController.getUsersInHouse);
+router.get('/', attachUser, usersController.getUserData);
 
 
 // TODO: The following routes should probably be moved to auth

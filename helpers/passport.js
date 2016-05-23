@@ -16,7 +16,7 @@ const localOptions = {
 const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
   userModel.getUserByEmail([ email ], function(err, user) {
     if (err) { return done(err); }
-    if (!user) { return(done, null); }
+    if (!user[0]) { return done(null); }
     
     comparePassword(password, user[0].password, function(err, isMatch) {
       if (err) { return done(err); }
