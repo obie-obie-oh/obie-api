@@ -15,7 +15,7 @@ Obie is an all in one roommate and landlord management application.
 ## Deploy Link / Splash Page
 http://obie.io/
 
-# How to run API
+## How to run API
 Note: API is found in this repo: [Obie Web Client](https://github.com/obie-obie-oh/obie)
 
 1. Start a MySQL server and populate it with the schema found in db/schema.sql
